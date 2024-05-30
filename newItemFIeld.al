@@ -12,8 +12,9 @@ tableextension 50100 "New Item Field" extends Item {
       MinValue = 0;
       MaxValue = 100;
     }
-    field(50102; "Basis Price"; Blob)
+    field(50102; "Basis Price Unit"; Enum WEIGHT_UNIT)
     {
+      Caption = 'Basis Price Unit';
       DataClassification = ToBeClassified;
     }
   }
