@@ -6,14 +6,24 @@
       "request": "launch",
       "type": "al",
       "environmentType": "Sandbox",
-      "environmentName": "Sandbox",
+      "environmentName": "Ambratec3",
       "startupObjectId": 22,
       "startupObjectType": "Page",
       "breakOnError": "All",
       "launchBrowser": true,
       "enableLongRunningSqlStatements": true,
       "enableSqlInformationDebugger": true
-      // "tenant": "fe7c0882-f17c-4dd9-987f-7ae70e8f899d" //use it if you have multiple BC
+    },
+    {
+      "name": "AL: Generated Snapshot request",
+      "request": "snapshotInitialize",
+      "type": "al",
+      "environmentType": "Production",
+      "environmentName": "Production",
+      "sessionId": 1492,
+      "breakOnNext": "WebClient",
+      "executionContext": "DebugAndProfile",
+      "tenant": "fe7c0882-f17c-4dd9-987f-7ae70e8f899d"
     }
   ]
 }

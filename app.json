@@ -2,7 +2,7 @@
   "id": "db3a3d71-61b9-47d2-8d30-94ffb7edfb62",
   "name": "CustomField",
   "publisher": "Surya",
-  "version": "1.0.0.1",
+  "version": "1.0.0.3",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -10,7 +10,26 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "70912191-3C4C-49FC-A1DE-BC6EA1AC9DA6",
+      "name": "Intrastat Core",
+      "publisher": "Microsoft",
+      "version": "24.1.18927.19633"
+    },
+    {
+      "id": "EC255F57-31D0-4CA2-B751-F2FA7C745ABB",
+      "name": "Shopify Connector",
+      "publisher": "Microsoft",
+      "version": "24.1.18927.19975"
+    },
+    {
+      "id": "C526B3E9-B8CA-4683-81BA-FCD5F6B1472A",
+      "name": "Sales and Inventory Forecast",
+      "publisher": "Microsoft",
+      "version": "24.1.18927.19633"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "24.0.0.0",

@@ -3,13 +3,21 @@ pageextension 50100 "Field on item card" extends "Item Card" {
     addbefore(InventoryGrp){
       group("Custom Fields") {
         field("Last Counted";Rec."Last Counted"){
-          ApplicationArea = all;
+          ApplicationArea = All;
+          Visible= true;
         }
         field("Basis Price Unit";Rec."Basis Price Unit"){
-          ApplicationArea= all;
+          ApplicationArea= All;
+          Visible = true;
         }
         field("Basis Factor";Rec."Basis Factor"){
-          ApplicationArea = all;
+          ApplicationArea = All;
+          Visible= true;
+        }
+        field("Category"; Rec."Category")
+        {
+          ApplicationArea = All;
+          Visible= true;
         }
       }
     }

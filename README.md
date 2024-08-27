@@ -1,3 +1,7 @@
+# Sources
+
+- [Reference Video](https://www.youtube.com/watch?v=xob-ic-Pw98)
+
 # Publishing
 
 run command pallet AL:Publish without debugging or AL:Publish with debugging
