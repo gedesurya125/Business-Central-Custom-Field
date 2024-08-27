@@ -101,7 +101,7 @@ page 50101 "CustomCategoryListPage"{
     }
 }
 
-
+// // ? This add the Navigation Link : Not working yet
 // pageextension 50102 MyRoleCenterExtension extends "Business Manager Role Center"
 // {
 //     actions
@@ -112,7 +112,7 @@ page 50101 "CustomCategoryListPage"{
 //             {
 //                 action("Custom Codes")
 //                 {
-//                     RunObject = page 50101;
+//                     RunObject = page CustomCategoryListPage;
 //                     Caption = 'Custom Category List Page';
 //                 }
 //             }
