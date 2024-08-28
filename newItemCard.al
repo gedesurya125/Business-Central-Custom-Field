@@ -24,34 +24,9 @@ pageextension 50100 "Field on item card" extends "Item Card" {
           TableRelation = CustomCategoryTable;
           Visible = true;
         }
-        // field("CustomCode"; Rec."Custom Category Code")
-        // {
-        //   ApplicationArea = All;
-        //   trigger OnLookup(var Text: Text): Boolean
-        //   begin
-        //       PAGE.Run(PAGE::CustomCategoryListPage, Rec);
-        //       exit(true);
-        //   end;
-        // }
       }
     }
   }
-
-  // actions
-  // {
-  //   addlast(Processing)
-  //   {
-  //     action(ManageCodes)
-  //     {
-  //       Caption = 'Manage Codes';
-  //       Image = Add;
-  //       trigger OnAction()
-  //       begin
-  //           PAGE.Run(PAGE::CustomCategoryListPage);
-  //       end;
-  //     }
-  //   }
-  // }
 }
 
 
@@ -74,7 +49,7 @@ page 50101 "CustomCategoryListPage"{
               Caption = 'Code';
           }
 
-          field(Description; Rec.Dsecription)
+          field(Description; Rec.Dsecription) //? wrong typing Dsecription
           {
               ApplicationArea = All;
               Caption = 'Description';
@@ -99,6 +74,53 @@ page 50101 "CustomCategoryListPage"{
         }
       }
     }
+}
+
+
+page 50102 CustomCodeApiPage
+{
+    PageType = API;
+    DelayedInsert= true;
+    SourceTable = CustomCategoryTable;
+    APIPublisher = 'suryacompany';
+    APIGroup = 'customfields';
+    APIVersion = 'v1.0';
+    EntityName = 'customcategory';
+    EntitySetName = 'customcategories';
+    Caption = 'Custom Categories';
+    layout
+    {
+        area(Content)
+        {
+            repeater(Group)
+            {
+                field(Code; Rec.Code)
+                {
+                    Caption = 'Code';
+                    ApplicationArea = All;
+                }
+
+                field(Description; Rec.Dsecription)//? wrong typing Dsecription
+                {
+                    Caption = 'Description';
+                    ApplicationArea = All;
+                }
+            }
+        }
+    }
+}
+
+//? This code below allow the published api in the business central access the Custom Table
+permissionset 50103 CustomAPIPermissions 
+  {
+    Assignable = true;
+    Caption = 'Custom Field Permissionset';
+    Permissions = tabledata CustomCategoryTable = RM;
+  }
+permissionsetextension 50104 CustomAPIPermissionsExtension extends "D365 BUS FULL ACCESS"
+{
+    Permissions =
+        TableData CustomCategoryTable = RM; // Include your permissions here
 }
 
 // // ? This add the Navigation Link : Not working yet
