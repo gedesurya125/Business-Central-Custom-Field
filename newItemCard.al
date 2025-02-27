@@ -24,6 +24,11 @@ pageextension 50100 "Field on item card" extends "Item Card" {
           TableRelation = CustomCategoryTable;
           Visible = true;
         }
+        field("Custom Product Code"; Rec."Custom Product Code"){
+          ApplicationArea= All;
+          TableRelation = CustomProductTable;
+          Visible = true;
+        }
       }
     }
   }
@@ -77,6 +82,58 @@ page 50101 "CustomCategoryListPage"{
 }
 
 
+
+
+page 50103 "CustomProductListPage" {
+  PageType=List;
+  SourceTable=CustomProductTable;
+  ApplicationArea= All;
+  Caption = 'Custom Product List Page';
+  UsageCategory=Lists;
+  layout{
+    area(Content)
+      {
+        repeater(Group)
+        {
+          field(Code; Rec.Code)
+          {
+            ApplicationArea = All;
+            Caption = 'Code';
+          }
+
+          field(Title; Rec.Title) //? wrong typing Dsecription
+          {
+              ApplicationArea = All;
+              Caption = 'Title';
+          }
+          field(Description; Rec.Description) //? wrong typing Dsecription
+          {
+            ApplicationArea = All;
+            Caption = 'Description';
+          }
+        }
+    }
+  }
+  actions{
+    area(Processing){
+      action(NewRecord)
+      {
+        Caption = 'New Product';
+        Image = New;
+
+        trigger OnAction()
+        begin
+            Rec.Insert();
+        end;
+      }
+    }
+  }
+}
+
+
+
+
+// ? Exposing the api
 page 50102 CustomCodeApiPage
 {
     PageType = API;
@@ -122,6 +179,9 @@ permissionsetextension 50104 CustomAPIPermissionsExtension extends "D365 BUS FUL
     Permissions =
         TableData CustomCategoryTable = RM; // Include your permissions here
 }
+
+
+
 
 // // ? This add the Navigation Link : Not working yet
 // pageextension 50102 MyRoleCenterExtension extends "Business Manager Role Center"

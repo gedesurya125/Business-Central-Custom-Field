@@ -27,6 +27,11 @@ tableextension 50100 "New Item Field" extends Item {
       TableRelation = CustomCategoryTable.Code;
       DataClassification = ToBeClassified;
     }
+    field(50105; "Custom Product Code"; Code[100]){
+      Caption = 'Custom Product Code';
+      TableRelation = CustomProductTable.Code;
+      DataClassification = ToBeClassified;
+    }
   }
 }
 
@@ -56,4 +61,35 @@ table 50001 CustomCategoryTable
     {
         key(PK; Code) { Clustered = true; }
     }
+}
+table 50002 CustomProductTable
+{
+  DataClassification = ToBeClassified;
+  Caption = 'Custom Product Table';
+  
+  fields
+  {
+    field(1;Code; Code[100])
+    {
+      Caption = 'Code';
+      DataClassification = ToBeClassified;
+    }
+    field(2;Title; Text[100])
+    {
+      Caption = 'Title';
+      DataClassification = ToBeClassified;
+    }
+    field(3;Description; Text[100])
+    {
+      Caption = 'Description';
+      DataClassification = ToBeClassified;
+    }
+  }
+  keys
+  {
+    key(PK; Code)
+    {
+      Clustered = true;
+    }
+  }
 }
