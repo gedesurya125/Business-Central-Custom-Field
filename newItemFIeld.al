@@ -92,4 +92,9 @@ table 50002 CustomProductTable
       Clustered = true;
     }
   }
+
+  trigger OnInsert()
+  begin
+    //code on insert
+  end;
 }
