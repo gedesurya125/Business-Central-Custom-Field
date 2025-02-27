@@ -6,7 +6,7 @@
       "request": "launch",
       "type": "al",
       "environmentType": "Sandbox",
-      "environmentName": "Ambratec3",
+      "environmentName": "development",
       "startupObjectId": 22,
       "startupObjectType": "Page",
       "breakOnError": "All",

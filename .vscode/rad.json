@@ -1,1 +1,26 @@
-﻿{"Added":[],"Modified":[],"Removed":[]}
+{
+  "Added": [],
+  "Modified": [
+    {
+      "Id": 50103,
+      "Kind": 26,
+      "Name": "CustomAPIPermissions",
+      "Namespace": ""
+    },
+    { "Id": 50100, "Kind": 16, "Name": "Field on item card", "Namespace": "" },
+    { "Id": 50102, "Kind": 12, "Name": "CustomCodeApiPage", "Namespace": "" },
+    {
+      "Id": 50101,
+      "Kind": 12,
+      "Name": "CustomCategoryListPage",
+      "Namespace": ""
+    },
+    {
+      "Id": 50104,
+      "Kind": 28,
+      "Name": "CustomAPIPermissionsExtension",
+      "Namespace": ""
+    }
+  ],
+  "Removed": []
+}
