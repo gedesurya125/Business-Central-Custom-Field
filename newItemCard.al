@@ -165,38 +165,59 @@ page 50104 "New Custom Product List Value"{
 
 
 // ? Exposing the api
-page 50102 CustomCodeApiPage
-{
-    PageType = API;
-    DelayedInsert= true;
-    SourceTable = CustomCategoryTable;
-    APIPublisher = 'suryacompany';
-    APIGroup = 'customfields';
-    APIVersion = 'v1.0';
-    EntityName = 'customcategory';
-    EntitySetName = 'customcategories';
-    Caption = 'Custom Categories';
-    layout
-    {
-        area(Content)
-        {
-            repeater(Group)
-            {
-                field(Code; Rec.Code)
-                {
-                    Caption = 'Code';
-                    ApplicationArea = All;
-                }
-
-                field(Description; Rec.Dsecription)//? wrong typing Dsecription
-                {
-                    Caption = 'Description';
-                    ApplicationArea = All;
-                }
-            }
+page 50102 CustomCodeApiPage{
+  PageType = API;
+  DelayedInsert= true;
+  SourceTable = CustomCategoryTable;
+  APIPublisher = 'suryacompany';
+  APIGroup = 'customfields';
+  APIVersion = 'v1.0';
+  EntityName = 'customcategory';
+  EntitySetName = 'customcategories';
+  Caption = 'Custom Categories';
+  layout{
+    area(Content){
+      repeater(Group){
+        field(Code; Rec.Code){
+          Caption = 'Code';
+          ApplicationArea = All;
         }
+
+        field(Description; Rec.Dsecription){
+        //? wrong typing Dsecription
+          Caption = 'Description';
+          ApplicationArea = All;
+        }
+      }
     }
+  }
 }
+
+// ? Custom item API that include the Custom product Code and Custom Category Code
+page 50105 CustomItemApi {
+  PageType = API;
+  SourceTable = Item;
+  APIPublisher = 'suryacompany';
+  APIGroup = 'customfields';
+  APIVersion = 'v1.0';
+  EntityName = 'customitem';
+  EntitySetName = 'customitems';
+  DelayedInsert = true;
+
+  layout{
+    area(Content){
+      repeater(Group){
+        field(No; Rec."No.") { Caption = 'Item No';}
+        field(Description;Rec.Description){Caption = 'Description';}
+        field(CustomProductCode;Rec."Custom Product Code"){Caption='Custom Product Code';}
+        field(CustomProductTitle;Rec."Custom Product Code"){Caption='Custom Product Code';}
+
+        field(CustomCategoryCode;Rec."Custom Category Code"){Caption='Custom Category Code';}
+      }
+    }
+  }
+}
+
 
 //? This code below allow the published api in the business central access the Custom Table
 permissionset 50103 CustomAPIPermissions 
@@ -206,10 +227,10 @@ permissionset 50103 CustomAPIPermissions
     Permissions = tabledata CustomCategoryTable = RM;
   }
 permissionsetextension 50104 CustomAPIPermissionsExtension extends "D365 BUS FULL ACCESS"
-{
+  {
     Permissions =
         TableData CustomCategoryTable = RM; // Include your permissions here
-}
+  }
 
 
 
